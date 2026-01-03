@@ -1,13 +1,1208 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>react-project-nine</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+ <!DOCTYPE html>
+<html>
+    <head>
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+<script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+<script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script>
+
+  <title>Happy Anniversary</title>
+</head>
+
+<style>
+:root {
+  --warna-bg: rgba(0, 0, 0, .5);
+  --warna-teks: #fff;
+  --warna-bingkai: #fff;
+  --bingkai: 8px;
+  --bingkai-kiri: 2px solid var(--warna-bingkai);
+  --bingkai-kanan: 2px solid var(--warna-bingkai);
+  --gaya-font: 'Shippori Antique', sans-serif;
+  --gaya-font2: 'Dancing Script', cursive;
+}
+@keyframes fanim {0% {background-position: 0% 0%;}25% {background-position: 100% 100%;} 50% {background-position: 0% 100%;} 75% {background-position: 50% 50%;} 100% {background-position: 0% 0%;}}
+body {
+  background-color: #000;
+  font-family: var(--gaya-font);
+  padding: 20px 25px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+a { text-decoration: none; }
+body::before {
+  content: "Instagram | @aoudumber.dev";
+  color: white;
+  opacity: .12;
+  font-size: 11px;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 2;
+}
+#bodyblur { opacity: .1; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.3); transition: all 1s ease; }
+#wallpaper { width: 100%; height: 100%; transform: scale(2); transition: all 1.3s ease; }
+#beneranblur { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.3); -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px); transition: all 3s ease; }
+
+@keyframes jj{0%  {transform: scale(1.1);} 50% {transform: scale(1.2);} 100% {transform: scale(1.1);} }
+@keyframes rts{from {transform:scale(.1);} to {transform:scale(1);} }
+@keyframes rto{from {transform:scale(1);} to {transform:scale(1.1);} }
+@keyframes aniopa{0% {transform: scale(1);} 50% {transform: scale(.75);} 100% {transform: scale(1);} }
+@keyframes rtf{from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
+@keyframes rt{from {transform: scale(.9);} to {transform: scale(1);} }
+@keyframes kont{0%  {left:-1px; top:-3px;} 50% {left:1px; top:3px;} 100% {left:-1px; top:-3px;} }
+
+blockquote {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 120px;
+  background: var(--warna-bg);
+  border-radius: 8px;
+  box-shadow: rgba(255,255,255, 0.3) 0px 7px 29px 0px;
+  transform: scale(.1);
+  transition: all 1s ease;
+  width: 400px;
+  text-align: center;
+  line-height: 1.3em;
+  padding: 20px 20px 10px 20px;
+  color: var(--warna-teks);
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);
+}
+blockquote::before {
+  content: attr(data-text);
+  font-family: sans-serif;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  min-width: 15px;
+  font-size: 16px;
+  text-align: center;
+}
+blockquote::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  top: -8px;
+  bottom: -8px;
+  left: -8px;
+  right: -8px;
+}
+blockquote p {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4em;
+  transition: all .5s ease;
+}
+blockquote > #opsL {
+  text-align: right;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 0;
+  margin-top: 24px;
+  color: white;
+  opacity: 0;
+  transition: all .2s ease;
+}
+
+#waktu { display: none; }
+#kado1, #kado2, #kado3 { font-size: 16px; font-weight: 400; }
+#kalimatAkhir { transform: scale(.1); }
+#kado1 { position: absolute; opacity: 0; }
+#kalove { font-size: 25px; line-height: 0; }
+.kolombar .inibar { position: absolute; opacity: 0; visibility: hidden; background-color: #fff; height: 5px; width: 100%; }
+
+#Tombol {
+  position: relative;
+  opacity: 0;
+  margin: 0;
+  display: flex;
+  align-items: left;
+  list-style: none;
+  transform: scale(.1);
+  transition: all 1s ease;
+}
+#Tombol a {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin: 12px 0;
+  transition: all .2s ease;
+  padding: 10px;
+  outline: 0;
+  border-right: var(--bingkai-kanan);
+  border-left: var(--bingkai-kiri);
+  border-radius: 4px;
+  line-height: 15px;
+  background: var(--warna-bg);
+  color: var(--warna-teks);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  box-shadow: rgba(255,255,255, 0.3) 0px 7px 29px 0px;
+  z-index: 1;
+}
+#Bn { margin: 12px 0 12px 12px !important; }
+
+#Content {
+  animation-name: none;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  position: relative;
+  opacity: 0;
+  margin-top: 50px;
+  width: 100%;
+  height: 180px;
+  transition: all .7s ease;
+}
+
+#Content > * { display: flex; align-items: center; text-align: center; justify-content: center; margin-top: 1px; }
+.kumpulanstiker > img {
+  display: none;
+  box-shadow: rgba(255,255,255, 0.3) 0px 7px 29px 0px;
+  background: rgba(255,255,255,1);
+  border-radius: 8px;
+  padding: 10px;
+  width: 90px;
+  height: 90px;
+  margin: 20px 0;
+}
+#fotostiker { opacity: .1; transition: all 1.2s ease; transform: scale(.1); }
+.halo { font-size: 17px !important; position: relative; margin: 15px 0 20px 0; }
+.halo.sty2 { font-family: 'Patrick Hand', cursive; font-size: 24px !important; margin-top: 20px !important; }
+.halo.sty3 { position: absolute !important; font-size: 14px !important; font-weight: 400 !important; margin: 30px 20px !important; }
+#kalimatbawah {
+  position: absolute;
+  opacity: 0;
+  transform: scale(.3);
+  font-family: 'Pacifico', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);
+  transition: all .5s ease;
+}
+#tanggal { position: absolute; opacity: 0; transform: scale(.3); transition: all .5s ease; }
+
+#kadoIn img {
+  box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493;
+  transition: all 0.3s ease;
+}
+#kadoIn img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #ff69b4, 0 0 50px #ff1493;
+}
+
+.msgAnim {
+  animation: fadeScale 2s ease-in-out forwards;
+}
+@keyframes fadeScale {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+
+#fotolove img { transition: all .5s ease; width: 75px; height: 75px; padding: 0; background: none; }
+#kadoIn img {
+  display: inline-flex;
+  background: none;
+  width: 130px;
+  height: 130px;
+  transition: all .3s ease;
+}
+#ket, .halo {
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+}
+#ket { margin-top: 25px !important; font-weight: 400; }
+#kadoIn img:hover { transform: scale(.9); }
+
+#kolombaru {
+  position: absolute;
+  opacity: 0;
+  display: flex;
+  transform: scale(.1);
+  transition: all 1s ease;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+#kolombaru > li { margin: 10px; padding: 10px; list-style-type: none; }
+#kolombaru li img { display: flex; width: 40px; height: 40px; }
+#kolombaru li img:hover { transform: scale(1.15); transition: all .3s ease; }
+
+.kolomrange { padding: 0; background: none; position: relative; z-index: 1; display: none; transition: all 1s ease; align-items: center; }
+.kolomrange .inirange { width: 100%; height: 40px; margin-right: 15px; display: flex; align-items: center; text-align: center; justify-content: center; }
+.kolomrange .inirange input {
+  height: 10px;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  background: #f2f2f2;
+  border-radius: 25px;
+}
+
+.kolomrange .inirange input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #006FFF;
+  background: white;
+  transition: all .2s ease;
+}
+.kolomrange .inirange input::-webkit-slider-thumb:hover {
+  border: 5px solid #006FFF;
+}
+.kolomrange .inivalue { color: white; font-size: 20px; }
+
+.swal2-modal > * { color: white; }
+.swal2-title {
+  line-height: 1.3em;
+  font-size: 18px;
+  text-align: center;
+  padding: 15px 30px 0 30px;
+}
+.swal2-container.swal2-backdrop-show { background: rgba(0,0,0,.5); }
+.swal2-timer-progress-bar-container > * {
+  opacity: .7;
+  background: #00B6FF;
+  margin: 0 2px;
+}
+.swal2-modal {
+  box-shadow: rgba(255,255,255, 0.3) 0px 7px 29px 0px;
+  background: rgba(0,0,0,.9);
+  max-width: 320px;
+  border-right: var(--bingkai-kanan);
+  border-left: var(--bingkai-kiri);
+  border-radius: 4px;
+  top: -50px;
+}
+
+.fa-heart {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  font-size: 25px;
+  color: red; /* make hearts red */
+  opacity: 0.8;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: heartMove 4s linear forwards;
+}
+
+@keyframes heartMove {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.kiss {
+  position: fixed;
+  bottom: -40px;
+  animation: kissUp 4s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes kissUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.4);
+    opacity: 0;
+  }
+}
+
+
+ #countdownBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  text-align: center;
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 0 10px pink;
+}
+
+#countdownTimer {
+  font-size: 30px;
+  margin-top: 10px;
+  color: #ff69b4;
+}
+
+#countdownTimer {
+  font-size: 32px;
+  font-weight: 600;
+  animation: pulse 1s infinite;
+} 
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9998; /* behind text, above background */
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+
+
+
+</style>
+
+<body>
+  <canvas id="canvas"></canvas>
+
+    <div id="countdownBox">
+  <p id="countdownText">🎁 sbrrr rkhooo merii rasmalaiiiiiii</p>
+  <p id="countdownTimer">Loading...</p>
+</div>
+
+<div id="fireworkMsg" style="
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0.8);
+  z-index:9999;
+  background:rgba(0, 0, 0, 0.8);
+  color:white;
+  padding:20px 30px;
+  border-radius:10px;
+  font-size:29px;
+  cursor:pointer;
+  text-align:center;
+  opacity:0;
+  transition: all 0.4s ease;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+">
+</div>
+
+
+<div id="feedbackMsg" style="
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:9999;
+  background:rgba(0,0,0,0.9);
+  color:white;
+  padding:20px 30px;
+  border-radius:10px;
+  font-size:18px;
+  text-align:center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+">
+  <div style="margin-bottom:15px;">🤭🤭🥲 Kaisaa lgaa Merii baggo 😗</div>
+  <button id="yesFeedback" style="
+    margin:5px;
+    padding:10px 20px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:green;
+    color:white;
+  ">Aagee chalee?🤭</button>
+  <button id="noFeedback" style="
+    margin:5px;
+    padding:10px 20px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:red;
+    color:white;
+  ">Once Moreee🥲💗</button>
+</div>
+
+
+  <!-- Change Audio here -->
+  <audio src="assets\song.mp3" id="linkmp3" class="sembunyi"></audio>
+
+  <div id="bodyblur">
+    <!-- Wallpaper -->
+    <img src="./assets/wp2.jpeg" id="wallpaper"/>
+    <div id="beneranblur"></div>
+  </div>
+
+<!-- Pre-confirmation -->
+<div id="preConfirm" style="position:relative; text-align:center; margin-top: 20vh;">
+  <p class="halo">Surprise ka signal aa gaya hai - Tumhari smile ki battery charge ho gayi?😄</p>
+  <button id="yesBtn" style="margin:10px; padding:10px 20px;">Aahooo😅</button>
+  <button id="noBtn" style="margin:10px; padding:10px 20px;">Nohhh🥲</button>
+  
+  <div id="dateInputDiv" style="display:none; margin-top:20px;">
+    <p class="halo">Remember the day we first met in world chat? 🥹💌</p>
+    <input type="text" id="meetDate" placeholder="dd/mm/yyyy" style="padding:5px 10px;"/>
+    <button id="checkDateBtn" style="margin-left:10px; padding:5px 10px;">Khul Jaa sim sim😅</button>
+  </div>
+ 
+</div>
+
+</div>
+
+  <div id="Content">
+    <div id="kadoIn">
+      <!-- Gift Button -->
+      <img src="./assets/kadoin.png"/>
+    </div>
+    <p id="ket">This is for myyyy loveeeee🫵🏻🥹💌 ! Excited? Tap it😙 </p>
+
+    <div class="kumpulanstiker">
+      <!-- Stickers for Content -->
+      <img src="./assets/peach6.gif" id="fotostiker"/>
+      <img src="./assets/peach11.gif" id="fotostiker2"/>
+      <img src="./assets/peachhug.gif" id="fotostiker3"/>
+    </div>
+    <p id="halo" class="halo">Finallyy 1-year Completeeee With youhhhh 🫵🏻🥺🫂😘</p>
+    <!-- Message Content After Action -->
+    <p id="halo2" class="halo sty2">Happyyyy Anniversaryyy Mimiiiiiiii🫀🥺🫂🎉</p>
+    <p id="halo3" class="halo sty3">My wish on this special moment is that we can stay together and always share the same goals
+        Through all the ups and downs, I’m grateful we have each other. Here’s to us, always <3</p>
+    <!-- Automatic Today’s Date -->
+    <p id="tanggal" class="halo sty3"></p>
+
+    <!-- Final Message Content -->
+    <p id="kalimatbawah">I Love Youuuhh so muchhh melaaa heraaaaaa💎💞 🧿</p>
+    <p id="kalimatbawah2" class="sembunyi">Happyyyyy Anniversaryyyy kanikaaaa👩🏼‍❤️‍👨🏽🧿❤️</p>
+    <p id="kalimatbawah3" class="sembunyi">I Luvvvbbb youuuu merii kannuuuu😙🫶🏻 ❤️</p>
+
+    <div>
+      <blockquote id="bq" data-text="♥">
+        <!-- Opening Content -->
+        <p id="kalimat">I just want to say..😍</p>
+        <p id="kalimatb">First of all, thank you for sticking with me 🤭</p>
+        <p id="kalimatc">Thank you also for accepting me as I am 🥺</p>
+        <p id="kalimatd">Even though we often quarrel,</p>
+        <p id="kalimate">But I still loveee youuuu meraaa kuchupuchuuu🫀💗😍</p>
+        <p id="kalimatf">tlo tlo bhut ho dya ab 🥺-- aade tlte hain! tap tloo fil se</p>
+        <p id="opsL">Aade tale ab? tap tloo😘</p>
+      </blockquote>
+    </div>
+
+    <!-- Send Message Button -->
+    <div id="Tombol"><a id="By">💌 Reply</a></div>
+
+    <!-- Message sent to WhatsApp -->
+    <span id="pesanWA" class="sembunyi">Aww, Happy Anniversary too!</span>
+  </div>
+
+  <!-- Do Not Edit This Part -->
+  <script>
+    // let heartInterval = null;
+    const body = document.querySelector("body");
+    const style = document.createElement('style');
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    today = dd + ' ' + monthNames[today.getMonth()] + ' ' + yyyy;
+    inikuis=0; ftganti=0; flag=1; flagg=1; fungsi=0; ftfungsi=0; fungsiAwal=0; fungsitimer=0;
+    vketikhalo=halo.innerHTML; halo.innerHTML = "";
+    vketikhalo2=halo2.innerHTML; halo2.innerHTML = "";
+    pesanwhatsapp = pesanWA.innerHTML;
+    deffotostiker=fotostiker.src;
+    Content.style = "opacity:1;margin-top:16vh;";
+    audio = new Audio(linkmp3.src);
+    tanggal.innerHTML = "- " + today + " -";
+    // Pre-confirmation logic
+const preConfirm = document.getElementById("preConfirm");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const dateInputDiv = document.getElementById("dateInputDiv");
+const meetDate = document.getElementById("meetDate");
+const checkDateBtn = document.getElementById("checkDateBtn");
+kalimatbawah.style.display = "none";
+kalimatbawah2.style.display = "none";
+kalimatbawah3.style.display = "none";
+pesanWA.style.display = "none"; // 🔥 third msg fix
+
+  let feedbackShown = false;
+let fireworksRunning = false;
+let checkFireworksEnd = null;
+
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+window.onresize = () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+};
+
+function showFireworkMsgAnimated() {
+  const text = "When You Are With me, My Heart🫀 Feels Like🫶🏻💞 - Aao Celebrate Krte hai! tap it👀";
+  let i = 0;
+
+  fireworkMsg.innerHTML = "";
+  fireworkMsg.style.display = "block";
+
+  // smooth appear
+  setTimeout(() => {
+    fireworkMsg.style.opacity = "1";
+    fireworkMsg.style.transform = "translate(-50%,-50%) scale(1)";
+  }, 50);
+
+  const typing = setInterval(() => {
+    fireworkMsg.innerHTML += text.charAt(i);
+    i++;
+    if (i >= text.length) clearInterval(typing);
+  }, 60); // speed (ms)
+}
+
+
+let particles = [];
+
+const fireworkColors = [
+  "#ff2d55", "#ff6f91", "#ffd166",
+  "#c77dff", "#ff006e", "#00f5ff", "#ffffff"
+];
+
+class Particle {
+  constructor(x, y, angle, speed) {
+    this.x = x;
+    this.y = y;
+    this.vx = Math.cos(angle) * speed;
+    this.vy = Math.sin(angle) * speed;
+    this.gravity = 0.04;
+    this.life = 120 + Math.random() * 30;
+    this.size = Math.random() * 2 + 1.5;
+    this.color = fireworkColors[Math.floor(Math.random() * fireworkColors.length)];
+    this.alpha = 1;
+    this.trail = [];
+    this.maxTrail = 8 + Math.floor(Math.random() * 6);
+  }
+
+  update() {
+    this.trail.push({ x: this.x, y: this.y });
+    if (this.trail.length > this.maxTrail) this.trail.shift();
+    this.x += this.vx;
+    this.y += this.vy;
+    this.vy += this.gravity;
+    this.vx *= 0.99;
+    this.life--;
+    this.alpha -= 0.008;
+  }
+
+  draw() {
+    for (let i = 0; i < this.trail.length; i++) {
+      const t = this.trail[i];
+      const a = i / this.trail.length;
+      ctx.save();
+      ctx.globalAlpha = a * this.alpha;
+      ctx.beginPath();
+      ctx.arc(t.x, t.y, this.size * a, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = this.color;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.shadowBlur = 25;
+    ctx.shadowColor = this.color;
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+function explode(x, y) {
+  for (let i = 0; i < 10; i++) {
+    particles.push(
+      new Particle(x, y, Math.random() * Math.PI * 2, Math.random() * 8 + 3)
+    );
+  }
+}
+
+function launchFireworks() {
+  for (let i = 0; i <25; i++) {
+    setTimeout(() => {
+      explode(
+        Math.random() * canvas.width * 0.8 + canvas.width * 0.1,
+        Math.random() * canvas.height * 0.4 + canvas.height * 0.1
+      );
+    }, i * 120);
+  }
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  ctx.fillStyle = "rgba(0,0,0,0.2)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p, i) => {
+    p.update();
+    p.draw();
+    if (p.life <= 0) particles.splice(i, 1);
+  });
+}
+animate();
+
+const fireworkMsg = document.getElementById("fireworkMsg");
+
+function startFireworksFlow() {
+  feedbackShown = false;
+  fireworksRunning = true;
+
+  canvas.style.display = "block";
+  launchFireworks();
+
+  checkFireworksEnd = setInterval(() => {
+    if (particles.length === 0 && fireworksRunning && !feedbackShown) {
+      feedbackShown = true;
+      clearInterval(checkFireworksEnd);
+      feedbackMsg.style.display = "block";
+    }
+  }, 500);
+}
+
+
+fireworkMsg.onclick = function () {
+  fireworkMsg.style.display = "none";
+  startFireworksFlow();   // ✅ YAHI ADD KARNA THA
+};
+
+
+
+
+const feedback = document.getElementById("feedbackMsg");
+const yesFeedback = document.getElementById("yesFeedback");
+const noFeedback = document.getElementById("noFeedback");
+
+yesFeedback.onclick = function () {
+  feedback.style.display = "none";
+  canvas.style.display = "none";
+  preConfirm.style.display = "block"; // move to pre-confirmation screen
+};
+
+
+noFeedback.onclick = function () {
+  feedbackMsg.style.display = "none";
+  fireworkMsg.style.display = "block";
+
+  // optional toast
+  alert("Jo Agyaaaa devii jiii 😗😗");
+};
+
+
+
+// 🔒 LOCK TIME (03 Jan 2026, 10:00 AM)
+// 🔐 SET UNLOCK DATE & TIME
+ // const unlockTime = new Date("January 3, 2026 10:00:00").getTime();
+ const unlockTime = new Date("January 3, 2026 10:00:00").getTime();
+
+
+const countdownBox = document.getElementById("countdownBox");
+const countdownTimer = document.getElementById("countdownTimer");
+
+
+// hide everything initially
+Content.style.display = "none";
+preConfirm.style.display = "none";
+
+function startCountdown() {
+  const now = new Date().getTime();
+  const distance = unlockTime - now;
+    
+  // ⏰ TIME REACHED
+
+if (distance <= 0) {
+  countdownBox.style.display = "none";
+  // document.getElementById("fireworkMsg").style.display = "block";
+  showFireworkMsgAnimated();
+  clearInterval(timerInterval);
+}
+
+
+//   // 🧮 CALCULATE TIME
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+//   // 🖥️ SHOW COUNTDOWN
+  countdownTimer.innerHTML =
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+// ⏳ RUN EVERY SECOND
+const timerInterval = setInterval(startCountdown, 1000);
+startCountdown();
+
+
+// Set the correct date here
+const correctDate = "03/01/2025";
+
+yesBtn.onclick = function() {
+  // 🔹 HIDE "Are you excited for the gift?"
+  document.querySelector("#preConfirm .halo").style.display = "none";
+
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+  dateInputDiv.style.display = "block";
+};
+// yesBtn.onclick = function () {
+//   feedbackMsg.style.display = "none";   // question hide
+//   canvas.style.display = "none";        // 🔥 fireworks canvas hide
+//   preConfirm.style.display = "block";   // ✅ pre-confirmation show
+// };
+
+
+noBtn.onclick = function() {
+  alert("Achaa ji !! Aao tmhe kissiyaa deke charge kruu💋💋😄");
+};
+
+
+const funnyMsgs = [
+  "Catch me if you can 😜",
+  "Almost got me! 🤭",
+  "Try again, hehe 😏",
+  "Oho! Pareshan hoge? 😆",
+  "Last chance! 👀"
+];
+
+let moveCount = 0;
+
+checkDateBtn.onclick = function () {
+  if (moveCount < 5) {
+    // Move button randomly
+    const x = Math.random() * 60;
+    const y = Math.random() * 60;
+
+    checkDateBtn.style.position = "absolute";
+    checkDateBtn.style.left = x + "vw";
+    checkDateBtn.style.top = y + "vh";
+
+    // Change button text to funny message
+    checkDateBtn.innerText = funnyMsgs[moveCount];
+
+    moveCount++;
+    return;
+  }
+
+  // After 5 moves → check date
+  if (meetDate.value === correctDate) {
+    preConfirm.style.display = "none";
+    Content.style.display = "block";
+    // startHearts(15000); // 💗 heart animation
+    startKiss();
+    startHearts()
+  } else {
+    checkDateBtn.innerText = "oyee tmhe yaad ni hum kb mile?😩😭🥺 - sahi se daalo";
+    moveCount = 0;
+  }
+};
+
+
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.innerText = "💗"; // heart emoji
+    heart.style.position = "fixed";
+    heart.style.bottom = "-50px"; // start below screen
+    heart.style.left = Math.random() * 100 + "vw"; // random horizontal position
+    heart.style.fontSize = Math.random() * 20 + 20 + "px"; // size 20-40px
+    heart.style.color = Math.random() > 0.5 ? "red" : "pink";
+    heart.style.opacity = Math.random() * 0.5 + 0.5;
+    heart.style.pointerEvents = "none";
+  
+    document.body.appendChild(heart);
+
+    // Animate: move up and grow
+    setTimeout(() => {
+        heart.style.transition = "transform 10s linear, opacity 10s linear";
+        heart.style.transform = "translateY(-120vh) scale(2)";
+        heart.style.opacity = "0";
+    }, 50);
+
+    // Remove heart after animation
+    setTimeout(() => heart.remove(), 10000);
+}
+
+// Permanent hearts
+function startHearts() {
+    setInterval(createHeart, 1000); // new heart every 1s
+}
+
+let kissInterval;
+
+function startKiss() {
+  kissInterval = setInterval(() => {
+    const kiss = document.createElement("div");
+    kiss.innerText = "💋";
+    kiss.className = "kiss";
+    kiss.style.left = Math.random() * 100 + "vw";
+    kiss.style.fontSize = Math.random() * 20 + 25 + "px";
+    document.body.appendChild(kiss);
+
+    setTimeout(() => kiss.remove(), 4000);
+  }, 500);
+}
+
+function stopKiss() {
+  clearInterval(kissInterval);
+}
+
+
+  </script>
+  <script>
+    // document.getElementById("kadoIn").onclick = function() {
+    //   if (fungsiAwal == 0) {
+    //     audio.play();
+    //     fungsiAwal = 1;
+    //     kadoIn.style = "transition:all .8s ease;transform:scale(10);opacity:0";
+    //     wallpaper.style = "transform: scale(1.5);";
+    //     ket.style = "display:none";
+    //     setTimeout(mulainama,700);
+    //   }
+    // };
+
+    const gift = document.getElementById("kadoIn"); // gift element
+let giftMoveCount = 0;
+
+gift.onclick = function() {
+  if (giftMoveCount < 3) {
+    // Move the gift to random position
+    const x = Math.random() * 70; // horizontal
+    const y = Math.random() * 50; // vertical
+    gift.style.position = "absolute";
+    gift.style.left = x + "vw";
+    gift.style.top = y + "vh";
+
+    giftMoveCount++;
+
+    // Optional: change cursor to tease
+    gift.style.cursor = "pointer";
+
+    return; // prevent click from actually opening yet
+  }
+
+  // After 3 moves → allow click action
+  gift.style.position = "static"; // reset position if needed
+  gift.style.left = "";
+  gift.style.top = "";
+  
+  // ✅ Actual click action
+  // Example: open content / play audio / animation
+  if(fungsiAwal == 0){
+      audio.play();
+      fungsiAwal = 1;
+      gift.style = "transition:all .8s ease;transform:scale(10);opacity:0";
+      wallpaper.style = "transform: scale(1.5);";
+      ket.style = "display:none";
+      setTimeout(mulainama,700);
+  }
+};
+
+// Mulainama updated
+async function mulainama() {
+    kadoIn.style = "display:none";
+    ket.style = "display:none";
+    Content.style = "opacity:1;margin-top:2vh";
+    bodyblur.style = "opacity:.2";
+    wallpaper.style = "transform: scale(1);";
+    fotostiker.style = "display:inline-flex;";
+
+    setTimeout(ftmuncul,200);
+    setTimeout(kethalo,500);
+
+    // ✅ Start kiss AND permanent hearts together
+    startKiss();
+    startHearts();
+}
+
+    function ftmuncul(){
+      if(ftganti==0){
+        fotostiker.src = deffotostiker;
+        fotostiker.style = "display:inline-flex;opacity:1;transform:scale(1)";
+      }
+      if(ftganti==1){
+        fotostiker.src = fotostiker2.src;
+        fotostiker.style = "display:inline-flex;opacity:1;transition:all .7s ease;transform:scale(1);";
+      }
+      if(ftganti==2){
+        fotostiker.src = fotostiker3.src;
+        fotostiker.style = "display:inline-flex;opacity:1;transition:all .7s ease;transform:scale(1);";
+      }
+      if(ftganti==3){
+        fotostiker.src = fotostiker4.src;
+        fotostiker.style = "display:inline-flex;opacity:1;transition:all .7s ease;transform:scale(1);box-shadow:none;background:none;width:150px;height:150px";
+        setTimeout(jjfoto,400);
+      }
+    }
+    function fthilang(){ fotostiker.style="display:inline-flex;opacity:1;transition:all .7s ease;transform:scale(.1)"; }
+    function jjfoto(){
+      fotostiker.style.animation="rto .8s infinite alternate";
+    //   setInterval(createHeart,200);
+    }
+
+    function kethalo(){
+      new TypeIt("#halo", {
+        strings: [vketikhalo],
+        startDelay: 50,
+        speed: 60,
+        waitUntilVisible: true,
+        afterComplete: function(){
+          halo.innerHTML = vketikhalo;
+          setTimeout(bqmuncul,200);
+        },
+      }).go();
+    }
+
+    function kethalo2(){
+      bqhilang();
+      fthilang();
+      ftganti=1;
+      setTimeout(ftmuncul,400);
+      halo.style="display:none";
+      new TypeIt("#halo2", {
+        strings: [vketikhalo2],
+        startDelay: 50,
+        speed: 60,
+        waitUntilVisible: true,
+        afterComplete: function(){
+          bq.style="";
+          halo2.innerHTML = vketikhalo2;
+           stopKiss();        // 💋 old kiss clear
+           startKiss();                 // 💋 restart kiss
+           startHearts();            // ❤️ hearts start HERE (correct time)
+        // startDynamicHearts(30);
+
+          setTimeout(mulaiketikAkhir,500);
+        },
+      }).go();
+    }
+
+    vketikhalo3 = halo3.innerHTML;
+    halo3.innerHTML = "";
+    function mulaiketikAkhir(){
+        kalimatbawah.style.display = "none";
+  kalimatbawah2.style.display = "none";
+  kalimatbawah3.style.display = "none";
+      halo3.style="position:relative !important";
+      new TypeIt("#halo3", {
+        strings: [vketikhalo3],
+        cursor: false,
+        startDelay: 50,
+        speed: 55,
+        waitUntilVisible: true,
+        afterComplete: function(){
+          halo3.innerHTML = vketikhalo3;
+          setTimeout(showtanggal,300);
+          setTimeout(munculbwh,800);
+          setTimeout(fthilang,600);
+          ftganti=2;
+          setTimeout(ftmuncul,1000);
+        //   setInterval(createHeart,400);
+          setTimeout(tombol,7000);
+        },
+      }).go();
+    }
+
+    function showtanggal(){ tanggal.style="position:relative !important;opacity:1;transform:scale(1)"; }
+    defkalimatbawah = kalimatbawah.innerHTML;
+    function munculbwh(){
+        // kalimatbawah.style.display = "block";
+      kalimatbawah.innerHTML = defkalimatbawah;
+       kalimatbawah.classList.add("msgAnim");
+      setTimeout(munculbwh2,2000);
+      otomatis();
+     kalimatbawah.classList.add("msgAnim");
+    }
+    function munculbwh2(){
+      kalimatbawah.innerHTML = kalimatbawah2.innerHTML;
+       kalimatbawah2.classList.add("msgAnim");
+      setTimeout(munculbwh3,2000);
+      otomatis();
+      
+    }
+    function munculbwh3(){
+      kalimatbawah.innerHTML = kalimatbawah3.innerHTML;
+      kalimatbawah3.classList.add("msgAnim");
+      setTimeout(munculbwh,2000);
+      otomatis();
+    }
+    function otomatis(){
+      kalimatbawah.style="position:relative;opacity:0;transform:scale(.3);";
+      setTimeout(anim,300);
+    }
+    function anim(){
+      kalimatbawah.style="position:relative;opacity:1;transform:scale(1);";
+    }
+
+    function bqmuncul(){
+      bq.style = "position:relative;opacity:1;visibility:visible;transform: scale(1);margin-top:0";
+      mulaiketik1();
+      fungsi=1;
+    }
+    function bqhilang(){
+      wallpaper.style="transform: scale(2);";
+      bodyblur.style="opacity:.2";
+      bq.style = "position:relative;transition:all .7s ease;";
+    }
+
+    function tombol(){
+      Tombol.style="opacity:1;transform: scale(1);";
+      fungsi=1;
+    }
+    document.getElementById("By").onclick = function(){
+      if(fungsi==1){ menuju(); }
+    };
+    async function menuju(){
+      window.location = "https://api.whatsapp.com/send?phone=&text=" + pesanwhatsapp;
+    }
+
+    opsLclick = 0; opsLcheck = 0;
+    document.getElementById("bq").onclick = function(){
+      if(opsLclick==1){
+        if(opsLcheck==1){ mulaiketik2(); }
+        if(opsLcheck==2){ mulaiketik3(); }
+        if(opsLcheck==3){ mulaiketik4(); }
+        if(opsLcheck==4){ mulaiketik5(); }
+        if(opsLcheck==5){ kethalo2(); }
+        opsLclick=0;
+      }
+    }
+
+    vketik1 = kalimat.innerHTML; kalimat.innerHTML = "";
+    function mulaiketik1(){
+      new TypeIt("#kalimat", {
+        strings: [vketik1],
+        startDelay: 400,
+        speed: 40,
+        deleteSpeed: 20,
+        breakLines: false,
+        waitUntilVisible: true,
+        lifelike: true,
+        afterComplete: function(){
+          opsL.style.opacity=".8";
+          opsLcheck=1;
+          opsLclick=1;
+        },
+      }).go();
+    }
+
+    vketik2 = kalimatb.innerHTML; kalimatb.innerHTML = "";
+    function mulaiketik2(){
+      kalimat.innerHTML = "";
+      kalimat.style.display="none";
+      opsL.style.opacity="0";
+      new TypeIt("#kalimatb", {
+        strings: [vketik2],
+        startDelay: 100,
+        speed: 40,
+        waitUntilVisible: true,
+        afterComplete: function(){
+          opsL.style.opacity=".8";
+          opsLcheck=2;
+          opsLclick=1;
+        },
+      }).go();
+    }
+
+    vketik3 = kalimatc.innerHTML; kalimatc.innerHTML = "";
+    function mulaiketik3(){
+      kalimatb.innerHTML = "";
+      kalimatb.style.display="none";
+      opsL.style.opacity="0";
+      new TypeIt("#kalimatc", {
+        strings: [vketik3],
+        startDelay: 100,
+        speed: 40,
+        waitUntilVisible: true,
+        afterComplete: function(){
+          opsL.style.opacity=".8";
+          opsLcheck=3;
+          opsLclick=1;
+        },
+      }).go();
+    }
+
+    vketik4 = kalimatd.innerHTML; kalimatd.innerHTML = "";
+    vketik5 = kalimate.innerHTML; kalimate.innerHTML = "";
+    function mulaiketik4(){
+      kalimatc.innerHTML = "";
+      kalimatc.style.display="none";
+      opsL.style.opacity="0";
+      new TypeIt("#kalimatd", {
+        strings: [vketik4, vketik5],
+        startDelay: 100,
+        speed: 40,
+        deleteSpeed: 10,
+        breakLines: false,
+        waitUntilVisible: true,
+        lifelike: true,
+        afterComplete: function(){
+          opsL.style.opacity=".8";
+          opsLcheck=4;
+          opsLclick=1;
+        },
+      }).go();
+    }
+
+    vketik6 = kalimatf.innerHTML; kalimatf.innerHTML = "";
+    function mulaiketik5(){
+      kalimatd.innerHTML = "";
+      kalimatd.style.display="none";
+      opsL.style.opacity="0";
+      new TypeIt("#kalimatf", {
+        strings: [vketik6],
+        startDelay: 100,
+        speed: 40,
+        deleteSpeed: 10,
+        breakLines: false,
+        waitUntilVisible: true,
+        lifelike: true,
+        afterComplete: function(){
+          kalimatf.innerHTML = vketik6;
+          opsLcheck=5; opsLclick=1;
+        },
+      }).go();
+    }
+  </script>
+  <!-- Up to Here -->
+</body>
 </html>
